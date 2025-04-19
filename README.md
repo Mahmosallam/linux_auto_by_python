@@ -1,4 +1,3 @@
-
 # Automating Linux Server Setup with Python
 
 ## Overview
@@ -84,49 +83,7 @@ The project is divided into four main modules:
 
 ---
 
+## How to Run
 
----
-
-#### **🔹 Key Features**  
-| Feature | Description |  
-|---------|-------------|  
-| **Hostname & IP Automation** | Sets `intranet.xyz.local` and configures static networking via `nmcli`. |  
-| **Multi-User Setup** | Creates `admin1` (sudo), `developer1`, and `viewer1` with passwords. |  
-| **Apache Deployment** | Installs HTTPD, deploys a custom `index.html` with a centered image (`sallam.jpg`). |  
-| **Permission Management** | Assigns `755` permissions and ownership to `/var/www/` directories. |  
-| **Security Tweaks** | Disables `firewalld` and `SELinux` for development ease (⚠️ not for production). |  
-
-#### **🔹 How It Works**  
-1. **Execution Flow**:  
-   - `main.py` calls modules in sequence:  
-     ```python
-     mod1.configure_system()  # Network/hostname  
-     mod2.main()             # User creation  
-     mod3.set_permissions()  # Directory setup  
-     mod4.main()             # Apache + webpage  
-     ```  
-2. **Modules**:  
-   - **`mod1.py`**: Uses `nmcli` to detect interfaces, set IPs, and update `/etc/hosts`.  
-   - **`mod2.py`**: Creates users with `useradd`, sets passwords via `chpasswd`.  
-   - **`mod3.py`**: Configures `/var/www/` ownership for `developer1`/`admin1`.  
-   - **`mod4.py`**: Installs Apache, centers the image in HTML, and disables security modules.  
-
-#### **🔹 Use Cases**  
-- **Internal company portals** (e.g., HR docs, team dashboards).  
-- **Educational labs** (quickly deploy web servers for students).  
-- **DevOps practice** (Python + Linux automation).  
-
-#### **🔹 Limitations**  
-- **Hardcoded values**: Passwords (`1234`), hostname, and image path need manual updates.  
-- **Security**: Disabling `firewalld`/`SELinux` is **not production-safe**.  
-- **OS Compatibility**: Designed for RHEL/CentOS (uses `yum` and `nmcli`).  
-
-#### **🔹 Future Improvements**  
-- Add **user input prompts** for hostname/passwords.  
-- Support **Ubuntu/Debian** (replace `yum` with `apt`).  
-- Integrate **Ansible** for idempotent deployments.  
-
----
-
-
+> **Note:** You must run the scripts as `root` or with `sudo` privileges.
 
